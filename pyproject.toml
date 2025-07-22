@@ -1,0 +1,51 @@
+[project]
+name = "multimodal-machine-learning-models-for-predicting-mechanical-thrombectomy-eligibility"
+version = "1"
+description = "Code and data for the submitted manuscript"  # TODO: Update description
+authors = [
+    { name = "Arjun Agarwal", email = "arjunagarwal899@gmail.com" },
+    { name = "Nirman Bharti", email = "jhanirman@gmail.com" },
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = { text = "GPL-3.0-only" }
+dependencies = [
+    "openpyxl",
+    "pandas",
+    "scikit-learn==1.6.1",
+    "xgboost==3.0.2",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Researchers",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS"
+]
+
+[project.urls]
+# Manuscript = "https://example.com"  # TODO: Add DOI URL
+Repository = "https://github.com/arjunagarwal899/multimodal-machine-learning-models-for-predicting-mechanical-thrombectomy-eligibility.git"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mt_eligibility"]
+
+[tool.black]
+line_length = 120
+
+[tool.isort]
+profile = "black"
+line_length = 120
+filter_files = true
+
+[tool.flake8]
+max-line-length = 120
