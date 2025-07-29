@@ -21,11 +21,15 @@ All data can be found here: `PROJECT_ROOT/mt_eligibility/data/`
 - **Sex**: sex of the patient
 - **NIHSS**: National Institutes of Health Stroke Scale score of the patient on first presentation
 - **LKWT**: Last Known Well Time of the patient on first presentation expressed in hours
-- **qER Infarct Decision**: presence of infarct detected by Qure.ai's proprietary segmentation model
-- **qER Infarct Volume**: volume of infarct in ml segmented by Qure.ai's proprietary segmentation model
-- **qER ASPECTS**: Alberta Stroke Program Early CT Score by Qure.ai's proprietary segmentation models
 - **LVO**: presence of LVO recorded based on the CTA interpretation of the original reporting neuroradiologist
 - **MT**: whether the patient underwent MT
+
+
+`qer.csv` contains the following columns:
+- **ID**: ID used to identify the repsective patient
+- **qER Infarct Decision**: presence of infarct detected by Qure.ai's proprietary classification model
+- **qER Infarct Volume**: volume of infarct in ml segmented by Qure.ai's proprietary segmentation model
+- **qER ASPECTS**: Alberta Stroke Program Early CT Score by Qure.ai's proprietary segmentation models
 
 
 `annotations.csv` contains the following columns:
