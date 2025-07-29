@@ -1,5 +1,9 @@
 import pandas as pd
+import shap
 import xgboost
+from IPython.display import display
+
+shap.initjs()
 
 
 def train_xgboost(
@@ -41,3 +45,19 @@ def get_feature_importances(model, train_x):
     feature_importances = model.feature_importances_
     importance_df = pd.DataFrame({"Feature": train_x.columns, "Importance": feature_importances})
     return importance_df
+
+
+def shap_analysis(model, test_x):
+    explainer = shap.TreeExplainer(model)
+    shap_values = explainer.shap_values(test_x)
+
+    print("Explanation of the first 3 predictions:")
+    for i in range(3):
+        display(shap.force_plot(explainer.expected_value, shap_values[i, :], test_x.iloc[i, :]))
+    print("--------------------------------")
+    print("Visualization of all test set predictions:")
+    display(shap.force_plot(explainer.expected_value, shap_values, test_x))
+    print("----------------------------------")
+    print("Summary plot:")
+    shap.summary_plot(shap_values, test_x, plot_type="bar")
+    print("----------------------------------")

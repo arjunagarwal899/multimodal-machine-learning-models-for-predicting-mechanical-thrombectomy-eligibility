@@ -12,6 +12,8 @@ license = { text = "GPL-3.0-only" }
 dependencies = [
     "openpyxl",
     "pandas",
+    "shap",
+    "matplotlib",
     "scikit-learn==1.6.1",
     "xgboost==3.0.2",
 ]
